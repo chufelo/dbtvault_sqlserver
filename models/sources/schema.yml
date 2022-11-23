@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: dbo
+    description: 'Generated tables for the data vault from dbo'
+    tables:
+      - name: customer
+        description: "Customer table"
+      - name: product
+      - name: factory
+      - name: transact
+      - name: region
+      - name: country
+      - name: location
+      - name: goal
+      - name: gri3033
+  - name: testdbo
+    description: 'Generated tables for the data vault from the test dbo'
+    tables:
+      - name: orders
+      - name: employee
+      - name: supplier
+  - name: staging
+    description: 'Staging schema contains generated tables with KPI figures'
+    tables:
+      - name: gri3033
+
+
+
+models:
+    - name: source_customer
+      description: "The initial table used for customer table journey"
+      columns:
+        - name: customer_name
+          description: 'calculates as blablabla'
+

@@ -1,0 +1,15 @@
+{{ config( 
+        materialization = 'table',
+        tags = ["company", "source", "water", "datavault"]
+)}}
+
+
+select distinct
+    gri.companyid,
+    goal.company
+from
+    {{ ref('gri3033') }} gri
+left join
+    {{ ref('goal') }} goal
+    on 
+        gri.companyid = goal.companyid
