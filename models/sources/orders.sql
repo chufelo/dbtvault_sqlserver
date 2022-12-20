@@ -1,5 +1,5 @@
 {{ config(
-        materialized='incremental',
+        materialized='table',
         tags = ["orders", "source", "datavault"]
 ) }}
 

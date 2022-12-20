@@ -24,7 +24,7 @@ hashed_columns:
                 - "nfw_gr_withd"
                 - "fw_sea_withd"
                 - "nfw_sea_withd"
-                - "fw_prod_withd"       
+                - "fw_prod_withd"
                 - "nfw_prod_withd"
                 - "fw_third_withd"
                 - "nfw_third_withd"
@@ -42,6 +42,10 @@ hashed_columns:
             is_hashdiff: true
             columns:
                 - "company"
+        postingmonth_hashdiff:
+            is_hashdiff: true
+            columns:
+                - "postingmonth"
 derived_columns:
         source: "!staging.gri3033 + dbo.goal"
         load_datetime: "convert(varchar, CURRENT_TIMESTAMP, 126)"

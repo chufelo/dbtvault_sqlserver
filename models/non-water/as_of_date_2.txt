@@ -1,0 +1,28 @@
+
+{{ config( 
+        materialization = 'table',
+        tags = ["dates", "businessvault", "water", "datavault"]
+)}}
+
+
+{% set start_date = "'2022-01-01'" %}
+{% set end_date = "'2023-02-01'" %}
+
+with DateTable as
+(
+    SELECT 
+        0 AS Number
+    UNION ALL
+    SELECT 
+        Number + 1
+    FROM 
+        DateTable
+    WHERE 
+        Number < DATEDIFF(day, {{start_date}}, {{end_date}})
+)
+
+SELECT 
+    cast(dateadd(day, number, DATEADD(day, DATEDIFF(day, {{start_date}}, {{end_date}}), {{start_date}})) as date) as date
+FROM 
+    DateTable
+--option (maxrecursion 0)

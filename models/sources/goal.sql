@@ -1,6 +1,6 @@
 {{ config(
-        materialized='incremental',
-        tags = ["company", "water", "source", "datavault"]
+        materialized='table',
+        tags = ["company", "source", "datavault"]
 ) }}
 
 

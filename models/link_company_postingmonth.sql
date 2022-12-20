@@ -3,8 +3,6 @@
     tags = ["company", "postingmonth", "link", "water", "datavault"]
 ) }}
 
-{{ config(materialized='incremental')         }}
-
 {%- set source_model = "stage_gri3033"        -%}
 {%- set src_pk = "gri3033_hk"         -%}
 {%- set src_fk = ["company_hk", "postingmonth_hk"] -%}
